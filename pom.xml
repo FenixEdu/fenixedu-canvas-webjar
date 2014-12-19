@@ -28,7 +28,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <upstreamVersion>master</upstreamVersion>
         <sourceUrl>https://github.com/FenixEdu/fenixedu-canvas/archive</sourceUrl>
-        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destDir>
+        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}</destDir>
         <requirejs>
             {
                 "paths": {
@@ -106,7 +106,7 @@
                     <replacements>
                         <replacement>
                             <token>url\('?+\.\.\/fonts\/([^\s\)?#']+)[\?#]{0,2}([^';]*)+?'?\)</token>
-                            <value>url("#{resource['webjars:fenixedu-canvas/${project.version}/fonts/$1']}&amp;v=${upstreamVersion}&amp;#$2")</value>
+                            <value>url("#{resource['webjars:fenixedu-canvas/fonts/$1']}&amp;v=${upstreamVersion}&amp;#$2")</value>
                         </replacement>
                     </replacements>
                     <regex>true</regex>
@@ -142,5 +142,12 @@
             </resource>
         </resources>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>fenixedu-releases</id>
+            <url>https://repo.fenixedu.org/fenixedu-releases</url>
+        </repository>
+    </distributionManagement>
 
 </project>
